@@ -7,24 +7,28 @@ app.get('/', (req, res) => {
 });
 
 //Questions
+  //Get question by id
+  app.get('question', (req, res) => {
+
+  });
   //Create a question
-  app.post('/questions', (req, res) => {
+  app.post('/question', (req, res) => {
 
   });
   //Delete a question
-  app.delete('/questions', (req, res) => {
+  app.delete('/question', (req, res) => {
 
   });
   //Update a question
-  app.put('/questions', (req, res) => {
+  app.put('/question', (req, res) => {
 
-  })
+  });
 
 //User
   //Record result
   app.post('/user', (req, res) => {
 
-  })
+  });
 
 
 app.listen(port, () => {
