@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 
 //Questions
   //Get question by id
-  app.get('question', (req, res) => {
+  app.get('/question', (req, res) => {
 
   });
   //Create a question
