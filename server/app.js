@@ -26,9 +26,7 @@ app.post('/question', (req, res) => {
 //Delete a question
 app.delete('/question/:id', db.deleteQuestionById);
 //Update a question
-app.put('/question', (req, res) => {
-
-});
+app.put('/question/:id', db.updateQuestionById);
 
 //User
 //Record result

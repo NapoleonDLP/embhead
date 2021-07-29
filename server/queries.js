@@ -45,9 +45,30 @@ const postQuestion = (req, res) => {
 };
 
 //put(update) a question
+const updateQuestionById = (req, res) => {
+  const id = parseInt(req.params.id);
+  let query = 'UPDATE questions SET ';
+  let values = [];
+
+  for (let column in req.body) {
+    values.push(req.body[column]);
+    query += `${column} = $${values.length}, `;
+  }
+
+  values.push(id);
+  query = query.slice(0, -2) + ` WHERE id = $${values.length} RETURNING *`;
+
+  pool.pool.query(query, values, (error, result) => {
+    if (error) throw error;
+
+    res.status(201).send(result.rows[0])
+  })
+};
+
 module.exports = {
   getQuestions,
   postQuestion,
   getQuestionById,
-  deleteQuestionById
+  deleteQuestionById,
+  updateQuestionById
 };
