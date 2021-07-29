@@ -35,12 +35,12 @@ const deleteQuestionById = (req, res) => {
 //post a new question
 const postQuestion = (req, res) => {
   const { question, answer, wrong_answers } = req.body;
-  pool.pool.query('INSERT INTO questions (question, answer, wrong_answers) VALUES ($1, $2, $3)', [question, answer, wrong_answers], (error, results) => {
+  pool.pool.query('INSERT INTO questions (question, answer, wrong_answers) VALUES ($1, $2, $3) RETURNING *', [question, answer, wrong_answers], (error, results) => {
     if (error) {
       throw error;
     };
-    //TODO: Find a way to respond with an Id number
-    res.status(201).send(`Question added with ID:${results.insertId}`)
+
+    res.status(201).send(`Question added with ID:${results.rows[0].id}`)
   })
 };
 
