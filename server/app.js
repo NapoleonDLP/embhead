@@ -11,10 +11,13 @@ app.get('/', (req, res) => {
 });
 
 //Questions
-//Get question by id
-app.get('/question', (req, res) => {
+//Get questions
+app.get('/questions', (req, res) => {
   db.getQuestions(req, res);
 });
+
+//Get question by id
+app.get('/question/:id', db.getQuestionById)
 //Create a question
 app.post('/question', (req, res) => {
   db.postQuestion(req, res);
