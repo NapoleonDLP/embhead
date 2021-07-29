@@ -23,6 +23,14 @@ const getQuestionById = (req, res) => {
 };
 
 //delete question using ID
+const deleteQuestionById = (req, res) => {
+  const id = parseInt(req.params.id);
+  pool.pool.query('DELETE FROM questions WHERE id = $1', [id], (error, result) => {
+    if (error) throw error;
+
+    res.status(200).json(`Question with id: ${id} deleted`)
+  });
+};
 
 //post a new question
 const postQuestion = (req, res) => {
@@ -31,6 +39,7 @@ const postQuestion = (req, res) => {
     if (error) {
       throw error;
     };
+    //TODO: Find a way to respond with an Id number
     res.status(201).send(`Question added with ID:${results.insertId}`)
   })
 };
@@ -39,5 +48,6 @@ const postQuestion = (req, res) => {
 module.exports = {
   getQuestions,
   postQuestion,
-  getQuestionById
+  getQuestionById,
+  deleteQuestionById
 };

@@ -17,15 +17,14 @@ app.get('/questions', (req, res) => {
 });
 
 //Get question by id
-app.get('/question/:id', db.getQuestionById)
+app.get('/question/:id', db.getQuestionById);
+
 //Create a question
 app.post('/question', (req, res) => {
   db.postQuestion(req, res);
 });
 //Delete a question
-app.delete('/question', (req, res) => {
-
-});
+app.delete('/question/:id', db.deleteQuestionById);
 //Update a question
 app.put('/question', (req, res) => {
 
