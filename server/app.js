@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3001;
 const db = require("./queries.js");
+const cors = require('cors');
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
 
