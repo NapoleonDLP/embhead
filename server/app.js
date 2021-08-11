@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
 //Get questions
 app.get('/questions', db.getQuestions);
 
+//Get random question
+app.get('/random', db.getRandomQuestion);
+
 //Get question by id
 app.get('/question/:id', db.getQuestionById);
 

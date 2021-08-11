@@ -22,6 +22,15 @@ const getQuestionById = (req, res) => {
   })
 };
 
+//get random question
+const getRandomQuestion = (req, res) => {
+  pool.pool.query('SELECT * FROM questions ORDER BY RANDOM() LIMIT 1', (error, results) => {
+    if (error) throw error;
+
+    res.status(200).json(results.rows);
+  })
+};
+
 //delete question using ID
 const deleteQuestionById = (req, res) => {
   const id = parseInt(req.params.id);
@@ -70,5 +79,6 @@ module.exports = {
   postQuestion,
   getQuestionById,
   deleteQuestionById,
-  updateQuestionById
+  updateQuestionById,
+  getRandomQuestion
 };
