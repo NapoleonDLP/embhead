@@ -21,6 +21,6 @@
     "cross-env": "^7.0.3",
     "jest": "^27.0.6",
     "nodemon": "^2.0.12",
-    "supertest": "^6.1.4"
+    "supertest": "^6.1.6"
   }
 }
