@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js --watch",
     "start": "node app.js",
-    "test": "jest --testTimeout=10000"
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
   },
   "author": "",
   "license": "ISC",
