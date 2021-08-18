@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js --watch",
     "start": "node app.js",
-    "test": "test"
+    "test": "jest --testTimeout=10000"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +22,11 @@
     "jest": "^27.0.6",
     "nodemon": "^2.0.12",
     "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
