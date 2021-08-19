@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js --watch",
-    "start": "node app.js",
+    "dev": "nodemon index.js --watch",
+    "start": "node index.js",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
   },
   "author": "",
