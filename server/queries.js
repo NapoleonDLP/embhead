@@ -49,7 +49,9 @@ const postQuestion = (req, res) => {
       throw error;
     };
 
-    res.status(201).send(`Question added with ID:${results.rows[0].id}`)
+    if (res) {
+      res.status(201).send(`Question added with ID:${results.rows[0].id}`)
+    }
   })
 };
 
